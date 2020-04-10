@@ -10,7 +10,7 @@ const initialState = {
   data: {
     favoriteItem: [],
     filters: {
-      operationType: 4,
+      operationType: '4',
       direction: ''
     }
   },

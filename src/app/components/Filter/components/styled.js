@@ -22,53 +22,15 @@ export const ActualSelection = styled.div`
     font-weight: 400;
   }
 `
-
-export const Direction = styled.div`
-  border-bottom: 1px solid #e9e9e9;
-  padding: 15px 0;
-
-  .search-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .search-button {
-    border-color: transparent;
-    min-width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    margin-left: 6px;
-    outline: none;
-    border-radius: 5px;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,.15);
-    background-color: #fff;
-    &:active {
-      color: #fff;
-      background-color: ${(props) => props.theme.colors.malibu};
-    }
-    &:hover {
-      border: 1px solid ${(props) => props.theme.colors.acadia};
-      box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
-    }
-  }
-
-  .search-input {
-    outline: none;
-    height: 40px;
-    font-size: 13px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    line-height: 36px;
-    padding: 0 15px;
-    width: 100%;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.03);
-    box-sizing: border-box;
-    &:hover {
-      box-shadow: 0 0 4px 0 rgba(3,3,3,.25);
-    }
-    &:focus {
-      border-color: ${(props) => props.theme.colors.summerSky};
-    }
-  }
+export const Chevron = styled.span`
+  width: 20px;
+  height: 20px;
+  transform: ${(props) => (!props.accordion ? 'rotate(90deg)' : 'rotate(180deg)')};
+  transition: all 0.3s ease;
+  width: 15px;
+  margin-top: 16px;
+  height: 15px;
+  background-color: #575757;
+  mask-image: url('https://image.flaticon.com/icons/svg/271/271220.svg');
+  display: inline-block;
 `

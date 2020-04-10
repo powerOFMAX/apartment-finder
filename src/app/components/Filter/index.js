@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Wrapper, Direction, ActualSelection } from './components/styled'
+import { Wrapper, ActualSelection } from './components/styled'
 import { applyFiltersToResults } from '../../actions/results'
 import { OperationType } from './components/OperationType'
+import { Direction } from './components/Direction'
 
 const Filter = () => {
   const dispatch = useDispatch()
@@ -26,18 +27,10 @@ const Filter = () => {
           <h3>Filtrado actual</h3>
         </ActualSelection>
 
-        <Direction>
-          <h3>Dirección</h3>
-          <div className='search-wrapper'>
-            <input
-              className='search-input'
-              value={direction}
-              onChange={(e) => setDirection(e.target.value)}
-              placeholder='Buscar por dirección'
-            />
-            <button type='submit' className='search-button' />
-          </div>
-        </Direction>
+        <Direction
+          direction={direction}
+          onChange={(e) => setDirection(e)}
+        />
 
         <OperationType
           onChange={(e) => dispatchOperation(e)}

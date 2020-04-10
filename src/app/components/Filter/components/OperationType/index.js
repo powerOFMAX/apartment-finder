@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import RadioGroup from '../../../RadioGroup'
 import { Wrapper } from './styled'
+import { Chevron } from '../styled'
 
 export function OperationType({ operationType, onChange }) {
   const [accordion, setAccordion] = useState(true)
@@ -12,7 +13,7 @@ export function OperationType({ operationType, onChange }) {
         <h3 className='operation-title'>
           Tipo de operación
         </h3>
-        <span className='chevron' onClick={() => setAccordion(!accordion)} />
+        <Chevron accordion={accordion} onClick={() => setAccordion(!accordion)} />
       </div>
       <div className='operation-list'>
         <RadioGroup
