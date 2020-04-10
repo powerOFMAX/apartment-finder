@@ -49,10 +49,10 @@ export const Direction = styled.div`
     background-color: #fff;
     &:active {
       color: #fff;
-      background-color: #61c1e7;
+      background-color: ${(props) => props.theme.colors.malibu};
     }
     &:hover {
-      border: 1px solid #1ea7dd;
+      border: 1px solid ${(props) => props.theme.colors.acadia};
       box-shadow: 0 0 3px 0 rgba(0,0,0,.05);
     }
   }
@@ -72,7 +72,7 @@ export const Direction = styled.div`
       box-shadow: 0 0 4px 0 rgba(3,3,3,.25);
     }
     &:focus {
-      border-color: #2b9ddd;
+      border-color: ${(props) => props.theme.colors.summerSky};
     }
   }
 `

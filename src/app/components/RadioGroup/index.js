@@ -1,60 +1,43 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Wrapper } from './components/styled'
 
 class RadioGroup extends Component {
-  static defaultProps = {
-    name: '',
-    className: 'radio-group-wrapper',
-    label: '',
-    options: [],
-    defaultValue: '',
-    tabIndexStartsAt: 1,
-    primaryColor: '#fc7b27',
-    secondaryColor: '#FFF',
-    onChange: () => {},
-  }
-
-  static propTypes = {
-    className: PropTypes.string,
-    defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    options: PropTypes.array.isRequired,
-    tabIndexStartsAt: PropTypes.number,
-    onChange: PropTypes.func.isRequired
-  }
-
-  constructor (props) {
+  constructor(props) {
     super(props)
+    const { defaultValue } = this.props
+
     this.state = {
-      checked: this.props.defaultValue
+      checked: defaultValue
     }
   }
 
-  onChange (e) {
-    this.setState({checked: e.target.value})
-    this.props.onChange(e)
+  onChange(e) {
+    this.setState({ checked: e.target.value })
+    const { onChange } = this.props
+    onChange(e)
   }
 
-  render () {
+  render() {
+    const { primaryColor, secondaryColor, className, options, tabIndexStartsAt, name } = this.props
+    const { checked } = this.state
     return (
-      <Wrapper primaryColor={this.props.primaryColor} secondaryColor={this.props.secondaryColor} className={this.props.className}>
+      <Wrapper primaryColor={primaryColor} secondaryColor={secondaryColor} className={className}>
         <div className='radio-group'>
           {
-            this.props.options.map((option, index) => {
-              this.id = '_' + Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)
+            options.map((option, index) => {
+              this.id = `_${Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)}`
               return (
                 <label key={this.id} className={`radio ${option.disabled ? 'disabled' : ''}`}>
                   <input
-                    checked={this.state.checked.toString() === option.value.toString()}
+                    checked={checked.toString() === option.value.toString()}
                     className='radio__input'
                     disabled={option.disabled ? option.disabled : false}
-                    name={this.props.name}
-                    tabIndex={this.props.tabIndexStartsAt + index}
+                    name={name}
+                    tabIndex={tabIndexStartsAt + index}
                     type='radio'
                     value={option.value}
-                    onChange={e => this.onChange(e)}
+                    onChange={(e) => this.onChange(e)}
                   />
                   <span className='radio__visual-input' />
                   <span className='radio__text'>
@@ -68,6 +51,25 @@ class RadioGroup extends Component {
       </Wrapper>
     )
   }
- }
+}
+
+RadioGroup.propTypes = {
+  className: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  tabIndexStartsAt: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  primaryColor: PropTypes.string,
+  secondaryColor: PropTypes.string
+}
+
+RadioGroup.defaultProps = {
+  className: 'radio-group-wrapper',
+  defaultValue: '',
+  tabIndexStartsAt: 1,
+  primaryColor: '#fc7b27',
+  secondaryColor: '#FFF'
+}
 
 export default RadioGroup

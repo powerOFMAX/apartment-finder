@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+const naventCdnPrefix = 'https://img10.naventcdn.com/listado/RPLISv4.3.0-RC1/'
+
 export const Title = styled.h2`
   display: inline-block;
   width: 100%;
@@ -31,7 +33,7 @@ export const FavoriteButton = styled.button`
   box-shadow: 0 2px 6px 0 rgba(0,0,0,.3);
   transition: box-shadow .4s,background-color .4s;
   &:hover {
-    background-color: #f2f2f2;
+    background-color: ${(props) => props.theme.colors.whiteSmoke};
     box-shadow: 0 3px 8px 0 rgba(0,0,0,.5);
   }
 
@@ -42,11 +44,11 @@ export const FavoriteButton = styled.button`
     background-size: contain;
     background-position: 50%;
     background-repeat: no-repeat;
-    background-image: url(https://img10.naventcdn.com/listado/RPLISv4.3.0-RC1/icon-fav-off.f379d4.svg);
+    background-image: url(${(props) => (props.isActive ? `${naventCdnPrefix}icon-fav-on.a5b569.svg` : `${naventCdnPrefix}icon-fav-off.f379d4.svg`)});
     vertical-align: top;
 
     &:active {
-      background-image: url(https://img10.naventcdn.com/listado/RPLISv4.3.0-RC1/icon-fav-on.a5b569.svg);
+      background-image: url(${`${naventCdnPrefix}icon-fav-on.a5b569.svg`});
     }
   }
 `
@@ -144,7 +146,7 @@ export const ContactWrapper = styled.div`
     display: inline-block;
     padding-right: 20px;
     font-size: 13px;
-    color: #333;
+    color: ${(props) => props.theme.colors.nightRider};
   }
 
   .contact {
@@ -153,7 +155,7 @@ export const ContactWrapper = styled.div`
       font-size: 15px;
       font-weight: 500;
       letter-spacing: .5px;
-      background-color: #fc7b27;
+      background-color: ${(props) => props.theme.colors.pumpkin};
       line-height: 35px;
       color: #fff;
       padding: 0 14px;
