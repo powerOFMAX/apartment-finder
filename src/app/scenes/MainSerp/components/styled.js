@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
   .left-container {
     width: 302px;
-    ${maxWidth.small`
+    ${maxWidth.medium`
       width: auto;
       padding-bottom: 20px;
     `};
@@ -20,13 +20,13 @@ export const Wrapper = styled.div`
     width: calc(100% - 302px);
     padding-left: 10px;
     box-sizing: border-box;
-    ${maxWidth.small`
+    ${maxWidth.medium`
       width: auto;
       padding: 0;
     `};
   }
 
-  ${maxWidth.small`
+  ${maxWidth.medium`
     flex-direction: column;
   `};
 `

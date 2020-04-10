@@ -62,6 +62,15 @@ export const GalleryWrapper = styled.div`
     width: 100%;
   }
 
+  .publication-type {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    color: #fff;
+    font-size: 13px;
+    text-shadow: 0 2px 4px rgba(0,0,0,.7);
+  }
+
   .image-wrapper {
     height: ${(props) => (props.publicationPlan === 'SUPERHIGHLIGHTED' ? '180px' : '165px')};
     position: relative;
@@ -133,7 +142,7 @@ export const Description = styled.div`
 export const InfoWrapper = styled.div`
   padding: 14px 18px 10px 14px;
   box-sizing: border-box;
-  height: 165px;
+  height: ${(props) => (props.publicationPlan === 'SUPERHIGHLIGHTED' ? '180px' : '165px')};
   
   p {
     font-size: 13px;
@@ -165,10 +174,12 @@ export const ContactWrapper = styled.div`
       cursor: pointer;
       font-size: 15px;
       font-weight: 500;
+      border: 0;
       letter-spacing: .5px;
       background-color: ${(props) => props.theme.colors.pumpkin};
       line-height: 35px;
       color: #fff;
+      outline: none;
       padding: 0 14px;
       border-radius: 5px;
       transition: background-color .3s;

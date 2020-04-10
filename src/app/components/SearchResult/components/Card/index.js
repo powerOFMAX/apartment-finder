@@ -13,7 +13,7 @@ import {
 } from './styled'
 
 import { changeFavorite } from '../../../../actions/results'
-import { getDateDifference } from '../../../../utils'
+import { getDateDifference, getPublicationPlanLabel } from '../../../../utils'
 
 /**
  * I'm going to supose that we just manage ARS and USD
@@ -28,6 +28,9 @@ const Card = ({
     <div className='container'>
       <GalleryWrapper publicationPlan={publicationPlan}>
         <div className='image-wrapper'>
+          <span className='publication-type'>
+            {getPublicationPlanLabel(publicationPlan)}
+          </span>
           <div>
             <FavoriteButton isActive={favorite} className='favorite-button'>
               <span
@@ -59,7 +62,7 @@ const Card = ({
       </GalleryWrapper>
 
       <Description>
-        <InfoWrapper>
+        <InfoWrapper publicationPlan={publicationPlan}>
           <Title><a href={slug}>{title}</a></Title>
           <Location>{`${location.address}, ${location.zone}, ${location.city}`}</Location>
           <p>{description}</p>

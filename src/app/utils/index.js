@@ -3,6 +3,16 @@ import postings from '../config/mockedPosting'
 /* eslint-disable */
 
 /**
+ * 
+ * @param {string} plan
+ */
+export const getPublicationPlanLabel = (plan) => {
+  if (plan === 'SUPERHIGHLIGHTED') return 'Super destacado'
+  if (plan === 'HIGHLIGHTED') return 'Destacado'
+  return 'Simple'
+}
+
+/**
  *
  * @param {string} operationType
  * @param {string} direction

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Wrapper, OperationType, Direction, ActualSelection } from './components/styled'
-import RadioGroup from '../RadioGroup'
+import { Wrapper, Direction, ActualSelection } from './components/styled'
 import { applyFiltersToResults } from '../../actions/results'
+import { OperationType } from './components/OperationType'
 
 const Filter = () => {
   const dispatch = useDispatch()
@@ -39,24 +39,10 @@ const Filter = () => {
           </div>
         </Direction>
 
-        <OperationType>
-          <h3 className='operation-title'>
-            Tipo de operación
-          </h3>
-          <div className='operation-list'>
-            <RadioGroup
-              defaultValue={operationType}
-              name='filtros'
-              options={[
-                { label: 'Comprar', value: 1 },
-                { label: 'Alquilar', value: 2 },
-                { label: 'Temporal', value: 3 },
-                { label: 'Todos', value: 4 }
-              ]}
-              onChange={(e) => dispatchOperation(e.target.value)}
-            />
-          </div>
-        </OperationType>
+        <OperationType
+          onChange={(e) => dispatchOperation(e)}
+          operationType={operationType}
+        />
       </Wrapper>
     </form>
   )

@@ -14,10 +14,6 @@ export const Wrapper = styled.nav`
     padding: 10px 0px 5px;
   }
 `
-export const H2 = styled.h2`
-
-`
-
 
 export const ActualSelection = styled.div`
   border-bottom: 1px solid #e9e9e9;
@@ -74,15 +70,5 @@ export const Direction = styled.div`
     &:focus {
       border-color: ${(props) => props.theme.colors.summerSky};
     }
-  }
-`
-
-export const OperationType = styled.div`
-  .operation-title {
-
-  }
-
-  .operation-list {
-    padding-left: 5px;
   }
 `
