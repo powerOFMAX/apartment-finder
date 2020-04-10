@@ -27,6 +27,7 @@ const ResultElement = ({ result }) => (
       slug={result.posting_slug}
       location={result.posting_location}
       description={result.posting_description}
+      publicationPlan={result.publication_plan}
     />
   </CardWrapper>
 )

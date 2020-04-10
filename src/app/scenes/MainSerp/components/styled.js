@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { maxWidth } from '../../../config/theme'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,11 +10,23 @@ export const Wrapper = styled.div`
 
   .left-container {
     width: 302px;
+    ${maxWidth.small`
+      width: auto;
+      padding-bottom: 20px;
+    `};
   }
 
   .right-container {
     width: calc(100% - 302px);
     padding-left: 10px;
     box-sizing: border-box;
+    ${maxWidth.small`
+      width: auto;
+      padding: 0;
+    `};
   }
+
+  ${maxWidth.small`
+    flex-direction: column;
+  `};
 `

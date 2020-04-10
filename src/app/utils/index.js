@@ -1,5 +1,6 @@
 import moment from 'moment'
 import postings from '../config/mockedPosting'
+/* eslint-disable */
 
 /**
  *

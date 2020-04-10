@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { maxWidth } from '../../../config/theme'
 
 export const CardWrapper = styled.div`
   background-color: white;
@@ -27,4 +28,10 @@ export const CardWrapper = styled.div`
     width: 100%;
     height: 3px;
   }
+
+  ${maxWidth.small`
+    .container {
+      flex-direction: column;
+    }
+  `};
 `

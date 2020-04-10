@@ -18,13 +18,15 @@ import { getDateDifference } from '../../../../utils'
 /**
  * I'm going to supose that we just manage ARS and USD
  */
-const Card = ({ id, picture, title, price, slug, location, description, publishDate }) => {
+const Card = ({
+  id, picture, title, price, slug, location, description, publishDate, publicationPlan
+}) => {
   const favorite = useSelector((state) => state.data.favoriteItem.includes(id))
   const dispatch = useDispatch()
 
   return (
     <div className='container'>
-      <GalleryWrapper>
+      <GalleryWrapper publicationPlan={publicationPlan}>
         <div className='image-wrapper'>
           <div>
             <FavoriteButton isActive={favorite} className='favorite-button'>
@@ -34,7 +36,11 @@ const Card = ({ id, picture, title, price, slug, location, description, publishD
               />
             </FavoriteButton>
           </div>
-          <img height='165' src={picture} alt={title} />
+          <img
+            height={publicationPlan === 'SUPERHIGHLIGHTED' ? '180' : '160'}
+            src={picture}
+            alt={title}
+          />
         </div>
 
         <Price>
@@ -80,7 +86,8 @@ Card.propTypes = {
   slug: PropTypes.string,
   location: PropTypes.object,
   description: PropTypes.string,
-  publishDate: PropTypes.string
+  publishDate: PropTypes.string,
+  publicationPlan: PropTypes.string
 }
 
 export default Card

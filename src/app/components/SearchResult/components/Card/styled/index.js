@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { maxWidth } from '../../../../../config/theme'
 
 const naventCdnPrefix = 'https://img10.naventcdn.com/listado/RPLISv4.3.0-RC1/'
 
@@ -54,7 +55,7 @@ export const FavoriteButton = styled.button`
 `
 
 export const GalleryWrapper = styled.div`
-  width: 275px;
+  width: ${(props) => (props.publicationPlan === 'SUPERHIGHLIGHTED' ? '330px' : '275px')};
   flex-shrink: 0;
 
   div > img {
@@ -62,9 +63,19 @@ export const GalleryWrapper = styled.div`
   }
 
   .image-wrapper {
-    height: 165px;
+    height: ${(props) => (props.publicationPlan === 'SUPERHIGHLIGHTED' ? '180px' : '165px')};
     position: relative;
   }
+
+  ${maxWidth.small`
+    width: auto;
+    .image-wrapper {
+      width: 100%;
+      img {
+        width: inherit;
+      }
+    }
+  `};
 `
 
 export const Price = styled.div`
