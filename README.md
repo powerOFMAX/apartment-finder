@@ -2,6 +2,8 @@
 
 This is a simple apartment finder built using ReactJS, Redux and Styled Components.
 
+![Screenshot](https://i.imgur.com/CzDOkD4.jpg)
+
 ## Things to know:
 Given that this sample was build for front-end purposes this will not include a back-end connection. Instead, we are grabbing some fake values from a .js file located on "src/app/config/" folder. This also means that the filter by direction functionality is not going to make a request, we are filtering those fields using Javascript.
 
