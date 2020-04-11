@@ -66,6 +66,7 @@ export const GalleryWrapper = styled.div`
     position: absolute;
     left: 12px;
     top: 12px;
+    z-index: 1;
     color: #fff;
     font-size: 13px;
     text-shadow: 0 2px 4px rgba(0,0,0,.7);

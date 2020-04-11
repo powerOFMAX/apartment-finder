@@ -14,9 +14,12 @@ import {
 
 import { changeFavorite } from '../../../../actions/results'
 import { getDateDifference, getPublicationPlanLabel } from '../../../../utils'
+import Slider from '../../../Slider'
 
 /**
- * I'm going to supose that we just manage ARS and USD
+ * NOTE: 2 Things to keep in mind
+ * 1) I'm going to supose that we just manage ARS and USD
+ * 2) I'm going to pass the same image twice to be able to test the gallery
  */
 const Card = ({
   id, picture, title, price, slug, location, description, publishDate, publicationPlan
@@ -39,10 +42,10 @@ const Card = ({
               />
             </FavoriteButton>
           </div>
-          <img
-            height={publicationPlan === 'SUPERHIGHLIGHTED' ? '180' : '160'}
-            src={picture}
+          <Slider
+            images={[picture, picture]}
             alt={title}
+            height={publicationPlan === 'SUPERHIGHLIGHTED' ? '180' : '160'}
           />
         </div>
 
