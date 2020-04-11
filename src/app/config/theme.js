@@ -20,7 +20,8 @@ export const theme = {
     pumpkin: '#fc7b27',
     whiteSmoke: '#f2f2f2',
     summerSky: '#2b9ddd',
-    malibu: '#61c1e7'
+    malibu: '#61c1e7',
+    mortar: '#575757'
   }
 }
 

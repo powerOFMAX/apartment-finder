@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper } from './styled'
+import { Wrapper, SearchIcon } from './styled'
 import { Chevron } from '../styled'
 
 export function Direction({ direction, onChange }) {
@@ -19,7 +19,9 @@ export function Direction({ direction, onChange }) {
           onChange={(e) => onChange(e.target.value)}
           placeholder='Buscar por dirección'
         />
-        <button type='submit' className='search-button' />
+        <button type='submit' className='search-button'>
+          <SearchIcon />
+        </button>
       </div>
     </Wrapper>
   )

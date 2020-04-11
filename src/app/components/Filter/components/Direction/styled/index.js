@@ -63,3 +63,13 @@ export const Wrapper = styled.div`
     }
   }
 `
+
+export const SearchIcon = styled.span`
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  mask-size: contain;
+  background-color: ${props => props.theme.colors.acadia};
+  mask-image: url('https://image.flaticon.com/icons/svg/49/49116.svg')
+`
+

@@ -30,7 +30,7 @@ export const Chevron = styled.span`
   width: 15px;
   margin-top: 16px;
   height: 15px;
-  background-color: #575757;
+  background-color: ${props => props.theme.colors.mortar};
   mask-image: url('https://image.flaticon.com/icons/svg/271/271220.svg');
   display: inline-block;
 `
